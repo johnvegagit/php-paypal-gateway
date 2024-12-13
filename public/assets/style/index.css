@@ -1,0 +1,145 @@
+/** Import inter font family **/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#checkoutMain{
+    margin: 35px;
+
+    & #checkoutForm{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 35px;
+
+        & section:nth-child(1){
+            max-width: 650px;
+            min-width: 340px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            & .form-header{
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+    
+                & h3{font-size: 25px;}
+    
+                & .checkout-info-p{
+                    max-width: 500px;
+                    padding: 10px;
+                    border-radius: 10px;
+                    color: #444444;
+                    background-color: #E67E2210;
+                    font-size: 14px;
+                    & i{color: #E67E22;}
+                }
+            }
+    
+            & .form-input-names-cont, .form-duoble-input-cont{
+                display: grid;
+                grid-template-columns: auto auto;
+                gap: 20px;
+            
+                & input{
+                    width: 100%;
+                    padding: 10px 5px;
+                    font-size: 14px;
+                }
+            }
+            
+            & .form-input-cont{
+                display: flex;
+                flex-direction: column;
+                gap: 3px;
+                position: relative;
+            
+                & input, textarea{
+                    width: 100%;
+                    padding: 10px 8px;
+                    font-size: 14px;
+                }
+            }
+        }
+
+        & section:nth-child(2){
+            width: 340px;
+            height: 360px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            & .cart-list-container{
+                /* overflow: auto;
+                max-height: 300px; */
+                background-color: #00000002;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                & .cart-item{
+                    height: 50px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    & .cart-item-img-name{
+                        display: flex;
+                        justify-content: start;
+                        align-items: center;
+                        gap: 10px;
+
+                        & img{
+                            width: 50px;
+                            height: 50px;
+                            background-color: #00000003;
+                            border: 1px solid #444444;
+                        }
+                    }
+                }
+            }
+
+            & .resume-payment-container{
+                background-color: #00000002;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                & ul{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    & li{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                    }
+
+                }
+            }
+
+            & button{
+                width: 100%;
+                padding: 10px 8px;
+                cursor: pointer;
+                font-size: 14px;
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #checkoutMain{
+        margin: 10px;
+    }
+}

@@ -133,7 +133,10 @@
                 </span>
             </div>
 
-            <button id="creatOrder">Place order --></button>
+            <div class="btn-cont">
+                <div id="alertInputMsg" class="input-msg-cont"></div>
+                <button id="creatOrder">Place order --></button>
+            </div>
         </section>
     </form>
 

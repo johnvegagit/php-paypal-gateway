@@ -1,4 +1,2 @@
-</body>
-<?= date('Y'); ?>
+</body></html>
 
-</html>

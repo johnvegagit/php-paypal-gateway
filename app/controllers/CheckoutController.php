@@ -1,5 +1,13 @@
 <?php
 declare(strict_types=1);
+session_start();
+
+use models\Checkout as customer_order;
+
+spl_autoload_register(function ($class) {
+    $class = str_replace('\\', '/', $class);
+    require dirname(__DIR__, 1) . DIRECTORY_SEPARATOR . $class . '.php';
+});
 
 $currentDirectory = __DIR__;
 $newDirectory = dirname($currentDirectory, 2);
@@ -141,11 +149,42 @@ class CheckoutController
             die();
         }
 
-        if (!$errors) {
+        try {
+            $data = [
+                'customer_id' => '646',
+                'total_amount' => '121.99',
+                'name' => $name,
+                'surname' => $surname,
+                'email' => $email,
+                'number' => $number,
+                'country' => $country,
+                'city' => $city,
+                'address' => $address,
+                'state' => $state,
+                'zipcode' => $zipcode,
+                'note' => $note
+            ];
 
+            if (!$errors) {
+
+                $order = new customer_order;
+                $order->addOrder($data);
+
+                // generate random token.
+                $token = rand(1350, 3350);
+
+                $_SESSION['email'] = $email;
+                $_SESSION['token'] = $token;
+
+                echo json_encode(value: [
+                    'success' => true,
+                    'html' => $_ENV['BASEURL'] . 'checkout/payment?token=' . $token,
+                ]);
+            }
+        } catch (PDOException $e) {
             echo json_encode(value: [
-                'success' => true,
-                'html' => $_ENV['BASEURL'] . 'checkout/payment?true=954758',
+                'success' => false,
+                'e' => $e->getMessage()
             ]);
         }
     }

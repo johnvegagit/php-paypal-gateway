@@ -12,6 +12,31 @@ label{
     font-size: 14px;
 }
 
+#ORLine{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin: 10px 0;
+
+    & hr{
+        width: 100%;
+        color: #eeeeee;
+        opacity: .5;
+    }
+}
+
+#keepExploringLink{
+    width: 100%;
+    padding: 15px 8px;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    background-color: #00000007;
+}
+
 #checkoutMain{
     margin: 35px;
 
@@ -138,6 +163,63 @@ label{
                 font-size: 14px;
                 margin-top: 10px;
             }
+        }
+    }
+}
+
+#paymentCheckoutMain{
+    margin: 35px;
+    display: flex;
+    justify-content: center;
+
+    & #paymentMethodContainer{
+        max-width: 360px;
+        background-color: #00000002;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        & .header{
+            display: flex;
+            text-align: center;
+            flex-direction: column;
+            gap: 10px;
+
+            & i{
+                font-size: 35px;
+                color: #10b65e;
+            }
+
+            & span{
+                font-size: 21px;
+                font-weight: 500;
+            }
+
+            & p{
+                font-size: 14px;
+            }
+        }
+
+        & .order-info {
+            list-style: none;
+            border: 1px dotted #c4c4c4;
+            padding: 10px;
+
+            & li {
+                font-size: 15px;
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
+            }
+
+            & span:first-child {
+                font-weight: 500;
+            }
+            
+            & span:last-child {
+                color: #444444;
+            }            
         }
     }
 }

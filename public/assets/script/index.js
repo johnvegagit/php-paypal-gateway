@@ -121,8 +121,12 @@ function checkoutFunc(formElement) {
                     document.getElementById('checkoutMain').style.height = '100vh';
                     document.getElementById('checkoutMain').style.display = 'flex';
                     document.getElementById('checkoutMain').style.justifyContent = 'center';
-                    document.getElementById('checkoutMain').style.alignItems = 'center';
-                    document.getElementById('checkoutMain').innerHTML = response.html;
+                    window.location.href = response.html;
+                }
+
+                // Renderizar el botón de PayPal después de insertar el HTML dinámicamente
+                if (typeof paypal !== "undefined") {
+                    paypal.Buttons().render('#paypal-button-container');
                 }
             }
 

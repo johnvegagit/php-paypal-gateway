@@ -1,6 +1,13 @@
 <?php
 declare(strict_types=1);
 
+$currentDirectory = __DIR__;
+$newDirectory = dirname($currentDirectory, 2);
+require $newDirectory . '/vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../..');
+$dotenv->safeLoad();
+
 class CheckoutController
 {
 
@@ -125,6 +132,7 @@ class CheckoutController
         }
 
         if (!empty($errors)) {
+
             echo json_encode([
                 'success' => false,
                 'errors' => $errors,
@@ -135,14 +143,11 @@ class CheckoutController
 
         if (!$errors) {
 
-            $htmlContent = 'Paypal';
-
             echo json_encode(value: [
                 'success' => true,
-                'html' => $htmlContent,
+                'html' => $_ENV['BASEURL'] . 'checkout/payment?true=954758',
             ]);
         }
-
     }
 }
 

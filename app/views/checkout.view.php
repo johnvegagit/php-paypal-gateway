@@ -1,5 +1,4 @@
 <main id="checkoutMain">
-
     <form id="checkoutForm">
         <section>
             <div class="form-header">
@@ -14,12 +13,12 @@
             <div class="form-input-names-cont">
                 <div class="form-input-cont">
                     <label for="name">name</label>
-                    <input class="FORM-INPUT-name" required type="text" placeholder="name" minlength="3" autocomplete="off">
+                    <input class="FORM-INPUT-name" required type="text" placeholder="name" minlength="3" autocomplete="off" value="">
                     <div id="inputMsg--name" class="input-msg-cont"></div>
                 </div>
                 <div class="form-input-cont">
                     <label for="surname">surname</label>
-                    <input class="FORM-INPUT-surname" required type="text" placeholder="surname" minlength="3" autocomplete="off">
+                    <input class="FORM-INPUT-surname" required type="text" placeholder="surname" minlength="3" autocomplete="off" value="">
                     <div id="inputMsg--surname" class="input-msg-cont"></div>
                 </div>
             </div>
@@ -27,28 +26,27 @@
             <!-- email -->
             <div class="form-input-cont">
                 <label for="email">email</label>
-                <input class="FORM-INPUT-email" required type="email" placeholder="email" minlength="10" autocomplete="off">
+                <input class="FORM-INPUT-email" required type="email" placeholder="email" minlength="10" autocomplete="off" value="">
                 <div id="inputMsg--email" class="input-msg-cont"></div>
             </div>
 
             <!-- number -->
             <div class="form-input-cont">
                 <label for="number">number</label>
-                <input class="FORM-INPUT-number" required type="number" placeholder="number" minlength="10" autocomplete="off">
+                <input class="FORM-INPUT-number" required type="number" placeholder="number" minlength="10" autocomplete="off" value="">
                 <div id="inputMsg--number" class="input-msg-cont"></div>
             </div>
-
 
             <!-- country city -->
             <div class="form-duoble-input-cont">
                 <div class="form-input-cont">
                     <label for="country">country</label>
-                    <input class="FORM-INPUT-country" required type="text" placeholder="country" minlength="3" autocomplete="off">
+                    <input class="FORM-INPUT-country" required type="text" placeholder="country" minlength="3" autocomplete="off" value="">
                     <div id="inputMsg--country" class="input-msg-cont"></div>
                 </div>
                 <div class="form-input-cont">
                     <label for="city">city</label>
-                    <input class="FORM-INPUT-city" required type="text" placeholder="city" minlength="3" autocomplete="off">
+                    <input class="FORM-INPUT-city" required type="text" placeholder="city" minlength="3" autocomplete="off" value="">
                     <div id="inputMsg--city" class="input-msg-cont"></div>
                 </div>
             </div>
@@ -56,7 +54,7 @@
             <!-- address -->
             <div class="form-input-cont">
                 <label for="address">address</label>
-                <input class="FORM-INPUT-address" required type="text" placeholder="address" minlength="10" autocomplete="off">
+                <input class="FORM-INPUT-address" required type="text" placeholder="address" minlength="10" autocomplete="off" value="">
                 <div id="inputMsg--address" class="input-msg-cont"></div>
             </div>
 
@@ -64,12 +62,12 @@
             <div class="form-duoble-input-cont">
                 <div class="form-input-cont">
                     <label for="state">state</label>
-                    <input class="FORM-INPUT-state" required type="text" placeholder="state" minlength="3" autocomplete="off">
+                    <input class="FORM-INPUT-state" required type="text" placeholder="state" minlength="3" autocomplete="off" value="">
                     <div id="inputMsg--state" class="input-msg-cont"></div>
                 </div>
                 <div class="form-input-cont">
                     <label for="zipcode">zipcode</label>
-                    <input class="FORM-INPUT-zipcode" required type="text" placeholder="zipcode" minlength="3" autocomplete="off">
+                    <input class="FORM-INPUT-zipcode" required type="text" placeholder="zipcode" minlength="3" autocomplete="off" value="">
                     <div id="inputMsg--zipcode" class="input-msg-cont"></div>
                 </div>
             </div>
@@ -115,30 +113,28 @@
                 <ul>
                     <li>
                         <span>Subtotal:</span>
-                        <?php $sub = 152.00 + 350.00 + 100.00 ?>
-                        <span><?= $sub ?></span>
+                        <span><?= htmlspecialchars($data['totalPay']) ?></span>
                     </li>
                     <li>
                         <span>Shipping:</span>
-                        <span>10.00</span>
+                        <span><?= htmlspecialchars($data['shippingPay']) ?></span>
                     </li>
                     <li>
                         <span>Tax:</span>
-                        <span>12.00</span>
+                        <span><?= htmlspecialchars($data['tax']) ?></span>
                     </li>
                 </ul>
                 <span class="resume-payment-total">
                     <span>total:</span>
-                    <span><?= $sub + 10.00 + 12.00 ?></span>
+                    <span><?= htmlspecialchars($data['totalPay']) + htmlspecialchars($data['shippingPay']) + htmlspecialchars($data['tax']) ?></span>
                 </span>
             </div>
 
-            <div class="btn-cont">
+            <div id="paymentContainer" class="btn-cont">
                 <div id="alertInputMsg" class="input-msg-cont"></div>
                 <button id="creatOrder">Place order --></button>
             </div>
         </section>
     </form>
-
 </main>
 

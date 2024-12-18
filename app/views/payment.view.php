@@ -37,8 +37,7 @@
             <div id="paypal-button-container"></div>
 
             <div id="ORLine">
-                <hr>
-                or
+                <hr> or
                 <hr>
             </div>
 
@@ -47,34 +46,42 @@
 
     </main>
 
+    <form id="formPayment" action="<?= $_ENV['BASEURL'] ?>checkout/submit_purchase" method="post">
+        <input type="hidden" name="paypalOrderID" id="paypalOrderID">
+        <input type="hidden" name="paypalAmount" id="paypalAmount">
+        <input type="hidden" name="capture_id" id="capture_id">
+    </form>
 
-    <script src="https://sandbox.paypal.com/sdk/js?client-id=AXt5JDFLfkbY4fJfGpODJ_BFuL5f-jVTMIwQd7M182ViUYjnTAolCccS-1WgeZ2VVDQoV0xFaJ_k34BT&currency=USD&intent=capture&commit=true&debug=true&components=buttons"></script>
+    <script
+        src="https://sandbox.paypal.com/sdk/js?client-id=AXt5JDFLfkbY4fJfGpODJ_BFuL5f-jVTMIwQd7M182ViUYjnTAolCccS-1WgeZ2VVDQoV0xFaJ_k34BT&currency=USD&intent=capture&commit=true&debug=true&components=buttons"></script>
     <script>
         paypal.Buttons({
-    createOrder: function (data, actions) {
-    return actions.order.create({
-    purchase_units: [
-    {
-    amount: {
-    value: '<?= htmlspecialchars($data['totalPay']) + htmlspecialchars($data['shippingPay']) + htmlspecialchars($data['tax']) ?>' // Monto total
-    }
-    }
-    ]
-    });
-    },
-    onApprove: function (data, actions) {
-    return actions.order.capture().then(function (details) {
-    const captureId = details.purchase_units[0].payments.captures[0].id;
+            createOrder: function (data, actions) {
+                return actions.order.create({
+                    purchase_units: [
+                        {
+                            amount: {
+                                value: '<?= htmlspecialchars($data['totalPay']) + htmlspecialchars($data['shippingPay']) + htmlspecialchars($data['tax']) ?>'
+                            }
+                        }
+                    ]
+                });
+            },
+            onApprove: function (data, actions) {
+                return actions.order.capture().then(function (details) {
+                    const captureId = details.purchase_units[0].payments.captures[0].id;
 
-    document.getElementById('paypalOrderID').value = data.orderID;
-    document.getElementById('paypalAmount').value = details.purchase_units[0].amount.value;
-    document.getElementById('capture_id').value = captureId;
-    });
-    },
-    onError: function (err) {
-    console.log('Error en el pago:', err);
-    }
-    }).render('#paypal-button-container');
+                    document.getElementById('paypalOrderID').value = data.orderID;
+                    document.getElementById('paypalAmount').value = details.purchase_units[0].amount.value;
+                    document.getElementById('capture_id').value = captureId;
+                    document.getElementById('formPayment').submit();
+                });
+            },
+            onError: function (err) {
+                console.log('Error en el pago:', err);
+            }
+        }).render('#paypal-button-container');
     </script>
+
 
 <?php endif;

@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace models;
 use core\Database;
 use PDO;
+use Exception;
 
 class Checkout
 {
@@ -62,8 +63,36 @@ class Checkout
         }
 
         if ($stmt->execute()) {
+            $_SESSION['orderID'] = $pdo->lastInsertId();
             return true;
         }
         return false;
+    }
+
+    public function updateOrderSatus($order_id, $customer_id)
+    {
+        $status = 'Completed';
+        $pdo = $this->get_connection();
+
+        try {
+            $pdo->beginTransaction();
+
+            $query = "UPDATE $this->table SET status = :status WHERE order_id = :order_id AND customer_id = :customer_id";
+            $stmt = $pdo->prepare($query);
+            $stmt->bindParam(':order_id', $order_id);
+            $stmt->bindParam(':customer_id', $customer_id);
+            $stmt->bindParam(':status', $status);
+            $stmt->execute();
+
+            $pdo->commit();
+
+            $successPay = $_SESSION['success-pay'] = rand(1500, 3000);
+            header('Location: ' . $_ENV['BASEURL'] . "checkout/s?success=#$successPay");
+            die();
+        } catch (Exception $e) {
+
+            $pdo->rollBack();
+            echo "Error en la transacción: " . $e->getMessage();
+        }
     }
 }

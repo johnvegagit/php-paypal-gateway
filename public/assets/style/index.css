@@ -1,18 +1,18 @@
 /** Import inter font family **/
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-label{
+label {
     font-size: 14px;
 }
 
-#ORLine{
+#ORLine {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -20,14 +20,14 @@ label{
     gap: 5px;
     margin: 10px 0;
 
-    & hr{
+    & hr {
         width: 100%;
         color: #eeeeee;
         opacity: .5;
     }
 }
 
-#keepExploringLink{
+#keepExploringLink {
     width: 100%;
     padding: 15px 8px;
     display: inline-block;
@@ -37,61 +37,68 @@ label{
     background-color: #00000007;
 }
 
-#checkoutMain{
+#checkoutMain {
     margin: 35px;
 
-    & #checkoutForm{
+    & #checkoutForm {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         gap: 35px;
 
-        & section:nth-child(1){
+        & section:nth-child(1) {
             max-width: 650px;
             min-width: 340px;
             display: flex;
             flex-direction: column;
             gap: 20px;
 
-            & .form-header{
+            & .form-header {
                 display: flex;
                 flex-direction: column;
                 gap: 15px;
-    
-                & h3{font-size: 25px;}
-    
-                & .checkout-info-p{
+
+                & h3 {
+                    font-size: 25px;
+                }
+
+                & .checkout-info-p {
                     max-width: 500px;
                     padding: 10px;
                     border-radius: 10px;
                     color: #444444;
                     background-color: #E67E2210;
                     font-size: 14px;
-                    & i{color: #E67E22;}
+
+                    & i {
+                        color: #E67E22;
+                    }
                 }
             }
-    
-            & .form-input-names-cont, .form-duoble-input-cont{
+
+            & .form-input-names-cont,
+            .form-duoble-input-cont {
                 width: 100%;
                 display: flex;
                 flex-wrap: wrap;
                 gap: 20px;
-            
-                & input{
+
+                & input {
                     width: 100%;
                     min-width: 240px;
                     padding: 10px 5px;
                     font-size: 14px;
                 }
             }
-            
-            & .form-input-cont{
+
+            & .form-input-cont {
                 display: flex;
                 flex-direction: column;
                 gap: 3px;
                 position: relative;
-            
-                & input, textarea{
+
+                & input,
+                textarea {
                     width: 100%;
                     padding: 10px 8px;
                     font-size: 14px;
@@ -99,33 +106,33 @@ label{
             }
         }
 
-        & section:nth-child(2){
+        & section:nth-child(2) {
             width: 340px;
             height: 360px;
             display: flex;
             flex-direction: column;
             gap: 20px;
 
-            & .cart-list-container{
+            & .cart-list-container {
                 background-color: #00000002;
                 padding: 10px;
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
 
-                & .cart-item{
+                & .cart-item {
                     height: 50px;
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
 
-                    & .cart-item-img-name{
+                    & .cart-item-img-name {
                         display: flex;
                         justify-content: start;
                         align-items: center;
                         gap: 10px;
 
-                        & img{
+                        & img {
                             width: 50px;
                             height: 50px;
                             background-color: #00000003;
@@ -135,19 +142,19 @@ label{
                 }
             }
 
-            & .resume-payment-container{
+            & .resume-payment-container {
                 background-color: #00000002;
                 padding: 10px;
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
 
-                & ul{
+                & ul {
                     display: flex;
                     flex-direction: column;
                     gap: 10px;
 
-                    & li{
+                    & li {
                         display: flex;
                         justify-content: space-between;
                         align-items: center;
@@ -156,7 +163,7 @@ label{
                 }
             }
 
-            & button{
+            & button {
                 width: 100%;
                 padding: 10px 8px;
                 cursor: pointer;
@@ -167,12 +174,12 @@ label{
     }
 }
 
-#paymentCheckoutMain{
+#paymentCheckoutMain {
     margin: 35px;
     display: flex;
     justify-content: center;
 
-    & #paymentMethodContainer{
+    & #paymentMethodContainer {
         max-width: 360px;
         background-color: #00000002;
         padding: 10px;
@@ -180,23 +187,23 @@ label{
         flex-direction: column;
         gap: 10px;
 
-        & .header{
+        & .header {
             display: flex;
             text-align: center;
             flex-direction: column;
             gap: 10px;
 
-            & i{
+            & i {
                 font-size: 35px;
                 color: #10b65e;
             }
 
-            & span{
+            & span {
                 font-size: 21px;
                 font-weight: 500;
             }
 
-            & p{
+            & p {
                 font-size: 14px;
             }
         }
@@ -216,31 +223,32 @@ label{
             & span:first-child {
                 font-weight: 500;
             }
-            
+
             & span:last-child {
                 color: #444444;
-            }            
+            }
         }
     }
 }
 
 @media only screen and (max-width: 600px) {
-    #checkoutMain{
+    #checkoutMain {
         margin: 10px;
     }
 }
 
-.input-msg-err{
+.input-msg-err {
     font-size: 13px;
     color: #ff0000;
-    & i{
+
+    & i {
         font-size: 13px;
         color: #ff0000;
     }
 }
 
 /***** COMPONENT MODAL MESSAGE *****/
-#modalMessageContainer{
+#modalMessageContainer {
     width: 100%;
     height: 100vh;
     background-color: var(--modal-bck-color);
@@ -255,7 +263,7 @@ label{
     z-index: 100;
     padding: 10px;
 
-    & .--modal-error-msg{
+    & .--modal-error-msg {
         width: 340px;
         display: flex;
         flex-direction: column;
@@ -267,7 +275,7 @@ label{
         box-shadow: 0 3px 10px 8px #00000007;
         padding: 15px;
 
-        & span{
+        & span {
             width: 100%;
             display: flex;
             text-align: start;
@@ -276,17 +284,21 @@ label{
             font-size: 20px;
             color: #ff0000;
             font-weight: 500;
-            & i{ font-size: 20px; color:  #ff0000; }
+
+            & i {
+                font-size: 20px;
+                color: #ff0000;
+            }
         }
 
-        & button{
+        & button {
             padding: 7px 35px;
             cursor: pointer;
             font-size: 14px;
         }
     }
 
-    & .--modal-scss-msg{
+    & .--modal-scss-msg {
         width: 340px;
         display: flex;
         flex-direction: column;
@@ -298,7 +310,7 @@ label{
         box-shadow: 0 3px 10px 8px #00000007;
         padding: 15px;
 
-        & span{
+        & span {
             width: 100%;
             display: flex;
             justify-content: flex-start;
@@ -306,14 +318,108 @@ label{
             font-size: 20px;
             color: #10b65e;
             font-weight: 500;
-            & i{ font-size: 20px; color: #10b65e; }
+
+            & i {
+                font-size: 20px;
+                color: #10b65e;
+            }
         }
 
-        & button{
+        & button {
             padding: 7px 35px;
             cursor: pointer;
             font-size: 14px;
         }
     }
 }
+
 /*****  COMPONENT MODAL MESSAGE *****/
+
+#success-pay-main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35px;
+    padding: 10px;
+
+    & #success-pay-modal-info {
+        width: 340px;
+        text-align: center;
+        padding: 15px;
+        background-color: #00000002;
+
+        & .bi-check-circle-fill {
+            font-size: 35px;
+            color: #10b65e;
+        }
+
+        & h3 {
+            font-size: 20px;
+            font-weight: 600;
+            padding: 15px 0;
+        }
+
+        & .desc {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            & p {
+                color: #444444;
+                font-size: 14px;
+            }
+
+            & ul {
+                padding: 10px;
+                background-color: #91cdf81a;
+
+                & li {
+                    font-weight: 500;
+                    list-style: none;
+                }
+            }
+        }
+    }
+}
+
+#failed-pay-main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35px;
+    padding: 10px;
+
+    & #failed-pay-modal-info {
+        max-width: 340px;
+        text-align: center;
+        padding: 15px;
+        background-color: #00000002;
+
+        & .bi-exclamation-triangle-fill {
+            font-size: 35px;
+            color: #ff0000;
+        }
+
+        & h3 {
+            font-size: 20px;
+            font-weight: 600;
+            padding: 15px 0;
+        }
+
+        & .desc {
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            & p {
+                color: #444444;
+                font-size: 16px;
+            }
+        }
+    }
+}
